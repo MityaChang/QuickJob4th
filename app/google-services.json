@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "219218617591",
+    "project_id": "quickjob-9f019",
+    "storage_bucket": "quickjob-9f019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219218617591:android:cff067c4742e321c1bdff2",
+        "android_client_info": {
+          "package_name": "com.example.quickjob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219218617591-g85f952d1canhkafopegv7258jvkg04f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1as7Odqm-53gHJgFfkwZWJb7-In3DpcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219218617591-g85f952d1canhkafopegv7258jvkg04f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

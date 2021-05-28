@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/jobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Job Title:"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/jobDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:padding="10dp"
+            android:text="14th May 2021"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#00FF00" />
+
+        <TextView
+            android:id="@+id/jobDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:padding="5dp"
+            android:text="Description:"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/jobSkills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:text="Skills:"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/jobSalaries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Salary:"
+            android:textAppearance="?android:textAppearanceMedium" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
