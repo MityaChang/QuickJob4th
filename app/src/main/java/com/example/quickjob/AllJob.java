@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class AllJob extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mAllPostedJobs = FirebaseDatabase.getInstance().getReference().child("Job_Post");
+        mAllPostedJobs = FirebaseDatabase.getInstance().getReference().child("Database");
         mAllPostedJobs.keepSynced(true);
     }
 
@@ -57,6 +58,7 @@ public class AllJob extends AppCompatActivity {
         public void setJobTitle(String title) {
             TextView mTitle = mView.findViewById(R.id.jobPostedTitle);
             mTitle.setText(title);
+//            Log.e("serJobTitle123",title);
         }
 
         public void setJobDate(String date) {
@@ -97,17 +99,22 @@ public class AllJob extends AppCompatActivity {
             @NonNull
             @Override
             public AllPostedJobViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_job_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.allpostjob, parent, false);
                 return new AllJob.AllPostedJobViewHolder(view);
             }
 
             @Override
             protected void onBindViewHolder(@NonNull AllPostedJobViewHolder holder, int position, @NonNull DataCenter model) {
+
                 holder.setJobTitle(model.getTitle());
                 holder.setJobDate(model.getDate());
                 holder.setJobDesc(model.getDescription());
                 holder.setJobSkills(model.getSkills());
                 holder.setJobSalary(model.getSalary());
+//                if(model.getSalary() != null){
+//                    Log.e("jobby","null");
+//                }
+//                Log.e("jobtitle1234",model.getDescription());
             }
         };
         recyclerView.setAdapter(adapter);

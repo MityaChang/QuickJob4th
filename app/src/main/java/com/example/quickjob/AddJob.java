@@ -60,7 +60,7 @@ public class AddJob extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         AddJob();
-        PostJob.child(userID).setValue("data");
+//        PostJob.child(userID).setValue("data");
     }
 
      void AddJob() {
@@ -116,7 +116,7 @@ public class AddJob extends AppCompatActivity {
 
                 mDatabase.child(id).setValue(data);
 
-                Toast.makeText(getApplicationContext(), "Successfully inserted", Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(), "Successfully inserted", Toast.LENGTH_SHORT).show();
 
                 startActivity(new Intent(getApplicationContext(), com.example.quickjob.PostJob.class));
 

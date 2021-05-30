@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,11 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class PostJob extends AppCompatActivity {
@@ -55,6 +59,7 @@ public class PostJob extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         DataPostJob = FirebaseDatabase.getInstance().getReference().child("Job_Post").child(UID);
+//        Log.e("postJobID",UID);
 
         recyclerView = findViewById(R.id.recylerJobPostID);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -65,45 +70,10 @@ public class PostJob extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseRecyclerOptions<DataCenter> options =
-                new FirebaseRecyclerOptions.Builder<DataCenter>()
-                        .setQuery(DataPostJob, DataCenter.class)
-                        .setLifecycleOwner(this)
-                        .build();
-
-
-        FirebaseRecyclerAdapter<DataCenter, AllJob.AllPostedJobViewHolder> adapter = new FirebaseRecyclerAdapter<DataCenter, AllJob.AllPostedJobViewHolder>(
-                options
-        ) {
-            @NonNull
-            @Override
-            public AllJob.AllPostedJobViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_job_item, parent, false);
-                return new AllJob.AllPostedJobViewHolder(view);
-
-            }
-
-            @Override
-            protected void onBindViewHolder(@NonNull AllJob.AllPostedJobViewHolder holder, int position, @NonNull DataCenter model) {
-
-                holder.setJobTitle(model.getTitle());
-                holder.setJobDate(model.getDate());
-                holder.setJobDesc(model.getDescription());
-                holder.setJobSkills(model.getSkills());
-                holder.setJobSalary(model.getSalary());
-            }
-        };
-
-        recyclerView.setAdapter(adapter);
-    }
 
     public static class viewHolder extends RecyclerView.ViewHolder {
 
         View JobView;
-
 
         public viewHolder(View itemView) {
             super(itemView);
@@ -135,4 +105,57 @@ public class PostJob extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        DataPostJob.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot snap : snapshot.getChildren()) {
+//                    DataCenter chara = snap.getValue(DataCenter.class);
+//                    Log.e("date123",chara.toString());
+////                    addCharaBasedOnCharaTypeSort(chara);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+        FirebaseRecyclerOptions<DataCenter> options =
+                new FirebaseRecyclerOptions.Builder<DataCenter>()
+                        .setQuery(DataPostJob, DataCenter.class)
+                        .setLifecycleOwner(this)
+                        .build();
+
+
+        FirebaseRecyclerAdapter<DataCenter, PostJob.viewHolder> adapter = new FirebaseRecyclerAdapter<DataCenter, PostJob.viewHolder>(
+                options
+        ) {
+
+            @NonNull
+            @Override
+            public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_job_item, parent, false);
+                Log.e("viewview","asd");
+                return new PostJob.viewHolder(view);
+
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull viewHolder holder, int position, @NonNull DataCenter model) {
+                Log.e("tile123", "model.toString()");
+                holder.setJobTitle(model.getTitle());
+                holder.setJobDate(model.getDate());
+                holder.setJobDesc(model.getDescription());
+                holder.setJobSkills(model.getSkills());
+                holder.setJobSalary(model.getSalary());
+            }
+
+        };
+        recyclerView.setAdapter(adapter);
+    }
+
 }
