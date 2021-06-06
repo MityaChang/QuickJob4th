@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundcolour"
+    android:orientation="vertical"
     tools:context=".HomeScreen">
-
-    <include layout="@layout/toolbar" android:id="@+id/toolbarHome"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,19 +14,39 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="50dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/joblist" />
+
+        </androidx.cardview.widget.CardView>
+
         <Button
             android:id="@+id/Alljobbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:background="@drawable/button_border"
             android:text="See All Job Post"
-            android:textAppearance="?android:textAppearanceMedium"/>
+            android:textAppearance="?android:textAppearanceMedium" />
+
         <Button
             android:id="@+id/Postjobbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Post A Job"/>
+            android:background="@drawable/button_border"
+            android:text="Post A Job" />
 
 
     </LinearLayout>

@@ -30,11 +30,11 @@ public class JobDetails extends AppCompatActivity {
         String salary = intent.getStringExtra("salary");
 
         //Set into textField
-        mTitle.setText(title);
-        mDate.setText(date);
+        mTitle.setText("Job Title:"+title);
+        mDate.setText("Date Posted:"+date);
         mDesc.setText(description);
-        mSkills.setText(skill);
-        mSalary.setText(salary);
+        mSkills.setText("Required Skill:"+skill);
+        mSalary.setText("Salary: $"+salary);
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

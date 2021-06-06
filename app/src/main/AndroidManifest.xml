@@ -9,18 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuickJob">
-        <activity android:name=".JobDetails" android:parentActivityName=".AllJob"></activity>
-        <activity android:name=".AddJob" android:parentActivityName=".PostJob"/>
-        <activity android:name=".PostJob" android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".AllJob" android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".HomeScreen" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".JobDetails"
+            android:parentActivityName=".AllJob" />
+        <activity
+            android:name=".AddJob"
+            android:parentActivityName=".PostJob" />
+        <activity
+            android:name=".PostJob"
+            android:parentActivityName=".HomeScreen" />
+        <activity
+            android:name=".AllJob"
+            android:parentActivityName=".HomeScreen" />
+        <activity android:name=".HomeScreen" />
+        <activity android:name=".Register" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

@@ -78,7 +78,7 @@ public class AllJob extends AppCompatActivity {
 
         public void setJobSalary(String salary) {
             TextView mSalary = mView.findViewById(R.id.jobPostedSalary);
-            mSalary.setText(salary);
+            mSalary.setText("$"+salary);
         }
     }
 
@@ -115,6 +115,21 @@ public class AllJob extends AppCompatActivity {
 //                    Log.e("jobby","null");
 //                }
 //                Log.e("jobtitle1234",model.getDescription());
+
+                holder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(AllJob.this, JobDetails.class);
+
+                        intent.putExtra("title",model.getTitle());
+                        intent.putExtra("date",model.getDate());
+                        intent.putExtra("description",model.getDescription());
+                        intent.putExtra("skills",model.getSkills());
+                        intent.putExtra("salary",model.getSalary());
+                        startActivity(intent);
+
+                    }
+                });
             }
         };
         recyclerView.setAdapter(adapter);

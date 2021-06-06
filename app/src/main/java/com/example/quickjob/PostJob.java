@@ -82,7 +82,7 @@ public class PostJob extends AppCompatActivity {
 
         public void setJobTitle(String title) {
             TextView mTitle = JobView.findViewById(R.id.jobTitle);
-            mTitle.setText(title);
+            mTitle.setText("Job Title:"+title);
         }
 
         public void setJobDate(String date) {
@@ -96,12 +96,12 @@ public class PostJob extends AppCompatActivity {
 
         public void setJobSkills(String skills) {
             TextView mSkills = JobView.findViewById(R.id.jobSkills);
-            mSkills.setText(skills);
+            mSkills.setText("Required Skills: "+skills);
         }
 
         public void setJobSalary(String salary) {
             TextView mSalary = JobView.findViewById(R.id.jobSalaries);
-            mSalary.setText(salary);
+            mSalary.setText("$"+salary);
         }
 
     }

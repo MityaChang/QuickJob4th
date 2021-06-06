@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="@drawable/backgroundcolour"
     android:gravity="center"
     tools:context=".Register">
 
@@ -17,11 +18,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="80dp">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/looking" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register"
+                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:background="@drawable/rounded_corner"
                 android:layout_gravity="center"
                 android:gravity="center"/>
             <EditText
@@ -29,34 +53,43 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:hint="Email:"
+                android:padding="10dp"
+                android:background="@drawable/tvroundedcorner2"
+                android:inputType="textEmailAddress"
                 android:id="@+id/EmailRegister"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:hint="password:"
-                android:id="@+id/PasswordRegister"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Register"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:id="@+id/Registerbtn"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="OR"
                 android:padding="10dp"
-                android:textAppearance="?android:textAppearanceLarge"/>
+                android:background="@drawable/tvroundedcorner2"
 
-            <Button
+                android:inputType="textPassword"
+                android:id="@+id/PasswordRegister"/>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                android:text="Log In"
-                android:id="@+id/loginbtn"/>
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:layout_weight="1"
+                    android:text="Register"
+                    android:background="@drawable/button_border"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:id="@+id/Registerbtn"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:text="Log In"
+                    android:background="@drawable/button_border"
+                    android:layout_weight="1"
+                    android:id="@+id/loginbtn"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

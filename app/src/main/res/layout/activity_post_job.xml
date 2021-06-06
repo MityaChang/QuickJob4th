@@ -5,11 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/backgroundcolour"
     tools:context=".PostJob">
 
-    <include
-        android:id="@+id/toolbarPost"
-        layout="@layout/toolbar" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
